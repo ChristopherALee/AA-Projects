@@ -1,0 +1,38 @@
+/* PHASE 5: Cats */
+.content-header {
+  display: flex;
+  min-height: 300px;
+  min-width: 900px;
+  background-image: url("http://www.dogbreedplus.com/dog_names/images/puppy-dog-names.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  align-items: flex-end;
+  line-height: 1;
+  /*justify-content: space-around;*/
+}
+
+.content-header > h1 {
+  text-shadow: 3px 3px 3px black;
+  flex-grow: 5;
+  text-align: center;
+  color: white;
+  font-size: 50px;
+  margin-bottom: 25px;
+}
+
+.content-header > button {
+  flex-grow: 1;
+  margin-bottom: 30px;
+  background-color: white;
+  text-align: center;
+  width: 30px;
+  margin-right: 30px;
+  padding: 5px 0;
+  border: 1px solid black;
+  font-weight: bold;
+}
+
+.content-header > button:hover {
+  background-color: grey;
+}
