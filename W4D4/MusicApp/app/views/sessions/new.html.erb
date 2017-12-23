@@ -1,0 +1,28 @@
+<center>
+
+<h2>Login</h2>
+
+<form class="" action="<%=session_url%>" method="post">
+  <input type="hidden" name="authenticity_token" value="<%=form_authenticity_token%>">
+  
+  <label>Username(E-Mail):
+    <input type="text" name="user[email]" value="">
+  </label>
+  
+  <br>
+  
+  <label>Password:
+    <input type="password" name="user[password]" value="">
+  </label>
+  
+  <br>
+  
+  <input type="submit" name="" value="Login">
+</form>
+
+<br>
+
+<form class="" action="<%=new_user_url%>" method="get">
+  Don't have an account?
+  <input type="submit" name="" value="Create New User">
+</form>

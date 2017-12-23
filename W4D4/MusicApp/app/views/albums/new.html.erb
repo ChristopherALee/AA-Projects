@@ -1,0 +1,28 @@
+<h3>Create a new album for <%=@band.name%></h3>
+
+<form class="" action="<%=albums_url%>" method="post">
+  <input type="hidden" name="authenticity_token" value="<%=form_authenticity_token%>">
+  
+  <input type="hidden" name="album[band_id]" value="<%=@band.id%>">
+  
+  <label>Album Title:
+    <input type="text" name="album[title]" value="">
+  </label>
+  
+  <label>Year:
+    <input type="integer" name="album[year]" value="">
+  </label>
+  
+  <label>Album Type
+    <select class="" name="album[album_type]">
+      <option disabled selected value="">--Select A Type--</option>
+      <option name="album[album_type]" value="Live">Live</option>
+      <option name="album[album_type]" value="Studio">Studio</option>
+    </select>
+    
+    <br>
+    <br>
+    
+    <input type="submit" name="" value="Create Album">
+  </label>
+</form>

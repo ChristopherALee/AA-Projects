@@ -1,0 +1,14 @@
+<h3>Edit <%= @album.title %></h3>
+
+<form class="" action="<%=album_url%>" method="post">
+  <input type="hidden" name="_method" value="patch">
+  <input type="hidden" name="authenticity_token" value="<%=form_authenticity_token%>">
+  <input type="hidden" name="album[id]" value="<%=@album.id%>">
+
+  
+  <label>Album Title:
+    <input type="text" name="album[title]" value="<%=@album.title%>">
+  </label>
+  
+  <input type="submit" name="" value="Submit Changes">
+</form>

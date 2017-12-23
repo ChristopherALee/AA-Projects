@@ -1,0 +1,22 @@
+.section-nav ul {
+  display: flex;
+  justify-content: space-around;
+  margin: auto;
+  width: 75%
+}
+
+.section-nav {
+  margin: 8px auto;
+  width: 100%;
+  border-bottom: 1px solid $light-gray;
+  padding-bottom: 8px;
+}
+
+.section-nav ul li:not(last-child):hover {
+  background-color: $light-gray;
+  cursor: pointer;
+}
+.section-nav ul li:last-child:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}

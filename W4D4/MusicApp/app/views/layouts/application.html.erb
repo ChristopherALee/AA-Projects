@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  
+  <head>
+    <title>Songify</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <header>
+      <%= stylesheet_link_tag "application"%>
+      <h1>Songify</h1>
+      <nav>
+        <a href="<%=bands_url%>">Home</a>
+      </nav>
+      <% if current_user %>
+      <form class="logout" action="<%=session_url%>" method="post">
+        <input type="hidden" name="_method" value="delete">
+        <input type="hidden" name="authenticity_token" value="<%=form_authenticity_token%>">
+        <input type="submit" name="" value="Log Out">
+      </form>
+      <% else %>
+      <form class="login" action="<%=new_session_url%>" method="get">
+        <input type="submit" name="" value="Login">
+      </form>
+      <% end %>
+    </header>
+    <% if current_user %>
+      <h3>Welcome, <%= current_user.email %></h3>
+    <% end %>
+    
+    <%= yield %>
+    
+    <br>
+    
+    <footer>
+      <a href="<%=new_band_url%>">Create A New Band!</a>
+    </footer>
+  </body>
+</html>

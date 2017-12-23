@@ -1,0 +1,29 @@
+<center>
+<h2>Create A New Account</h2>
+
+<form class="" action="<%=users_url%>" method="post">
+  <input type="hidden" name="authenticity_token" value="<%=form_authenticity_token%>">
+  
+  <label>
+    Username(E-Mail):
+    <input type="text" name="user[email]" value="">
+  </label>
+  
+  <br>
+  
+  <label>
+    Create Password (must be at least 6 characters):
+    <input type="password" name="user[password]" value="">
+  </label>
+  
+  <br>
+  
+  <input type="submit" name="" value="Create Account!">
+</form>
+
+<br>
+
+<form class="" action="<%=new_session_url%>" method="get">
+  Have an account?
+  <input type="submit" name="" value="Login">
+</form>

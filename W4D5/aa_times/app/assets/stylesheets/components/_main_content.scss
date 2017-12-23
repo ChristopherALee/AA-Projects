@@ -1,0 +1,16 @@
+#first-column {
+  h1 {
+    font-weight: bold;
+    font-style: italic;
+    font-size: 19px;
+    text-decoration: underline;
+    font-family: $serif
+  }
+  
+  h2 {
+    font-style: italic;
+    font-family: $serif;
+    color: $gray;
+    line-height: 120%;
+  }
+}

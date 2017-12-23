@@ -1,0 +1,77 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+ 
+ body {
+   background: linear-gradient(white, #26E384);
+   background-size: cover;
+ }
+ 
+ header {
+   font-family: proxima_nova,"Helvetica Neue",Helvetica,Arial,sans-serif;
+   color: #00D564;
+   /*background-color: #26E384;*/
+ }
+ 
+ body {
+   font-family: proxima_nova,"Helvetica Neue",Helvetica,Arial,sans-serif;
+ }
+ 
+ html {
+   height: 100vh;
+ }
+ 
+ nav a {
+   background-color: #EE4848;
+   color: white;
+   padding: 8px 18px;
+   text-align: center; 
+   text-decoration: none;
+   display: inline-block;
+   font-size: 12px;
+   margin: 10px;
+   font-weight: bold;
+ }
+ 
+ h1 {
+   font-size: 75px;
+   display: flex;
+   justify-content: space-between;
+   margin: 20px;
+ }
+ 
+ .logout {
+  position: fixed;
+  top:0;
+  right:0;
+ }
+ 
+ .login {
+   display: flex;
+   align-self: flex-start;
+   justify-content: flex-end;
+ }
+ 
+ footer a {
+   background-color: #EE4848;
+   color: white;
+   font-weight: bold;
+   padding: 8px 18px;
+   text-align: center; 
+   text-decoration: none;
+   display: inline-block;
+   font-size: 12px;
+   margin: 10px;
+ }
