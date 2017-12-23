@@ -1,0 +1,65 @@
+.tabs {
+  /*border: 5px solid white;*/
+
+  width: 200px;
+  height: 200px;
+  margin-left: 100px;
+  margin-top: 50px;
+}
+
+.tabs h1 {
+  font-size: 16px;
+  font-family: sans-serif;
+  padding: 5px;
+  margin: auto;
+  /*background-color: cadetblue;*/
+}
+
+.tabs ul {
+  justify-content: space-around;
+  display: flex;
+  margin: 0;
+  padding: 0;
+
+}
+
+
+.tabs li {
+  margin: 0;
+  list-style: none;
+  border: 2px solid black;
+  padding: 0 12px;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+  background-color: cadetblue;
+}
+
+.tabs li:hover {
+  cursor: crosshair;
+  background: black;
+  color: white;
+}
+
+.tabs li:nth-of-type(2) {
+  border-right: none;
+  border-left: none;
+}
+
+.tab-content {
+  background-image: url('https://img.buzzfeed.com/buzzfeed-static/static/2014-06/14/15/enhanced/webdr02/anigif_enhanced-854-1402772731-5.gif?downsize=715:*&output-format=auto&output-quality=auto');
+  padding-top: 100px;
+  text-align: center;
+  border-left: 2px solid black;
+  border-right: 2px solid black;
+  border-bottom: 2px solid black;
+  height: 100px;
+  width: 202px;
+  margin-left: -3px;
+  font-size: 20px;
+  font-weight: bold;
+  font-family: sans-serif;
+}
+
+.selected {
+  border-bottom: none !important;
+}

@@ -1,0 +1,45 @@
+.ttt ul {
+  display: flex;
+  list-style: none;
+  height: 500px;
+  width: 500px;
+  flex-wrap: wrap;
+  box-sizing: border-box;
+}
+
+.ttt li {
+
+  height: 33.33333%;
+  width: 33.33333%;
+  border: 1px solid black;
+  box-sizing: border-box;
+  font-size: 125px;
+  font-family: sans-serif;
+  text-align: center;
+}
+
+.ttt li:hover {
+  background-color: yellow;
+}
+
+
+.row-0 {
+  background-color: red;
+}
+
+.row-1 {
+  background-color: green;
+}
+
+.row-2 {
+  background-color: blue;
+}
+
+.clicked {
+  background-color: white;
+}
+
+.winners {
+  background-color: gold;
+}
+

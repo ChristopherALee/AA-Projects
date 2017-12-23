@@ -1,0 +1,32 @@
+.clock {
+  background-color: #34a5ff;
+  color: #64ff34;
+  border: 1px solid gray;
+  font-family: 'Krona One', sans-serif;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  width: 75%;
+  margin: auto;
+  font-size: 30px;
+  text-shadow: 2px 6px 10px black;
+}
+
+.clock h1 {
+  margin: auto;
+}
+
+.clock aside {
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.numbers {
+  align-self: flex-end;
+  margin-top: -37px;
+}
+
+.names {
+  align-self: flex-start;
+}
