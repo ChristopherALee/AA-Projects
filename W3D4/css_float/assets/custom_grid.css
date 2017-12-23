@@ -1,0 +1,15 @@
+/* PUT FLUID GRID CODE HERE */
+.custom {
+  float: left;
+  box-sizing: border-box;
+}
+
+.custom_directions {
+  width: 80%;
+}
+
+.custom_ingredients {
+  width: 33%;
+  padding-right: 0;
+}
+
