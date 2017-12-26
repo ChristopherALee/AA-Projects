@@ -26055,7 +26055,7 @@ var SessionForm = function (_React$Component) {
       username: '',
       password: ''
     };
-    debugger;
+    // debugger
     _this.handleSubmit = _this.handleSubmit.bind(_this);
     return _this;
   }
