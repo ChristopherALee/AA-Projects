@@ -948,7 +948,7 @@ var _reactDom = __webpack_require__(18);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
-var _session_api_util = __webpack_require__(27);
+var _session_actions = __webpack_require__(54);
 
 var _store = __webpack_require__(35);
 
@@ -960,6 +960,7 @@ var _root2 = _interopRequireDefault(_root);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+// import { signup, login, logout } from './util/session_api_util';
 window.createUser = function (user) {
   return $.ajax({
     method: 'POST',
@@ -972,9 +973,9 @@ window.createUser = function (user) {
   });
 };
 
-window.signup = _session_api_util.signup;
-window.login = _session_api_util.login;
-window.logout = _session_api_util.logout;
+window.signup = _session_actions.signup;
+window.login = _session_actions.login;
+window.logout = _session_actions.logout;
 
 document.addEventListener('DOMContentLoaded', function () {
   var store = (0, _store2.default)();
@@ -19533,6 +19534,7 @@ var RECEIVE_ERRORS = exports.RECEIVE_ERRORS = 'RECEIVE_ERRORS';
 var RECEIVE_SESSION_ERRORS = exports.RECEIVE_SESSION_ERRORS = 'RECEIVE_SESSION_ERRORS';
 
 var receiveCurrentUser = exports.receiveCurrentUser = function receiveCurrentUser(currentUser) {
+  debugger;
   return {
     type: RECEIVE_CURRENT_USER,
     currentUser: currentUser
@@ -19555,19 +19557,26 @@ var receiveSessionErrors = exports.receiveSessionErrors = function receiveSessio
 
 var signup = exports.signup = function signup(user) {
   return function (dispatch) {
-    return ApiUtil.signup(user).then(dispatch(receiveCurrentUser(user)));
+    return ApiUtil.signup(user).then(function (user) {
+      return dispatch(receiveCurrentUser(user));
+    });
   };
 };
 
 var login = exports.login = function login(user) {
   return function (dispatch) {
-    return ApiUtil.login(user).then(dispatch(receiveCurrentUser(user)));
+    // debugger
+    return ApiUtil.login(user).then(function (user) {
+      return dispatch(receiveCurrentUser(user));
+    });
   };
 };
 
 var logout = exports.logout = function logout() {
   return function (dispatch) {
-    return ApiUtil.logout().then(dispatch(receiveCurrentUser(null)));
+    return ApiUtil.logout().then(function (user) {
+      return dispatch(receiveCurrentUser(null));
+    });
   };
 };
 
@@ -25822,6 +25831,10 @@ var _react = __webpack_require__(4);
 
 var _react2 = _interopRequireDefault(_react);
 
+var _greeting_container = __webpack_require__(124);
+
+var _greeting_container2 = _interopRequireDefault(_greeting_container);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var App = function App() {
@@ -25829,14 +25842,126 @@ var App = function App() {
     'div',
     null,
     _react2.default.createElement(
-      'h1',
+      'header',
       null,
-      'Bench BnB'
+      _react2.default.createElement(
+        'h1',
+        null,
+        'Bench BnB'
+      ),
+      _react2.default.createElement(_greeting_container2.default, null)
     )
   );
 };
 
 exports.default = App;
+
+/***/ }),
+/* 123 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _react = __webpack_require__(4);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactRouterDom = __webpack_require__(96);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var personalGreeting = function personalGreeting(currentUser, logout) {
+  return _react2.default.createElement(
+    'div',
+    { className: 'personal-greeting' },
+    _react2.default.createElement(
+      'h2',
+      { className: 'greeting-header' },
+      'Hi, ',
+      currentUser.username,
+      '!'
+    ),
+    _react2.default.createElement(
+      'button',
+      { className: 'logout-button', onClick: logout },
+      'Log Out'
+    )
+  );
+};
+
+var notLoggedIn = function notLoggedIn() {
+  return _react2.default.createElement(
+    'nav',
+    { className: 'login-signup' },
+    _react2.default.createElement(
+      _reactRouterDom.Link,
+      { to: '/login' },
+      'Login'
+    ),
+    'or',
+    _react2.default.createElement(
+      _reactRouterDom.Link,
+      { to: '/signup' },
+      'Sign Up'
+    )
+  );
+};
+
+var Greeting = function Greeting(_ref) {
+  var currentUser = _ref.currentUser,
+      logout = _ref.logout;
+
+  if (currentUser) {
+    return personalGreeting(currentUser, logout);
+  } else {
+    return notLoggedIn();
+  }
+};
+
+exports.default = Greeting;
+
+/***/ }),
+/* 124 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _reactRedux = __webpack_require__(84);
+
+var _session_actions = __webpack_require__(54);
+
+var _greeting = __webpack_require__(123);
+
+var _greeting2 = _interopRequireDefault(_greeting);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var mapStateToProps = function mapStateToProps(_ref) {
+  var session = _ref.session;
+  return {
+    currentUser: session.currentUser
+  };
+};
+
+var mapDispatchToProps = function mapDispatchToProps(dispatch) {
+  return {
+    logout: function logout() {
+      return dispatch((0, _session_actions.logout)());
+    }
+  };
+};
+
+exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(_greeting2.default);
 
 /***/ })
 /******/ ]);
