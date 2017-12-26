@@ -948,15 +948,33 @@ var _reactDom = __webpack_require__(18);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
+var _session_api_util = __webpack_require__(27);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+window.createUser = function (user) {
+    return $.ajax({
+        method: 'POST',
+        url: 'api/users',
+        data: {
+            user: user
+        }
+    }).then(function (user) {
+        return console.log(user);
+    });
+};
+
+window.signup = _session_api_util.signup;
+window.login = _session_api_util.login;
+window.logout = _session_api_util.logout;
+
 document.addEventListener('DOMContentLoaded', function () {
-  var root = document.getElementById('root');
-  _reactDom2.default.render(_react2.default.createElement(
-    'h1',
-    null,
-    'BenchBNB'
-  ), root);
+    var root = document.getElementById('root');
+    _reactDom2.default.render(_react2.default.createElement(
+        'h1',
+        null,
+        'BenchBNB'
+    ), root);
 });
 
 /***/ }),
@@ -18266,6 +18284,43 @@ function camelize(string) {
 }
 
 module.exports = camelize;
+
+/***/ }),
+/* 27 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+var signup = exports.signup = function signup(user) {
+  return $.ajax({
+    method: 'POST',
+    url: '/api/users',
+    data: {
+      user: user
+    }
+  });
+};
+
+var login = exports.login = function login(user) {
+  return $.ajax({
+    method: 'POST',
+    url: '/api/session',
+    data: {
+      user: user
+    }
+  });
+};
+
+var logout = exports.logout = function logout() {
+  return $.ajax({
+    method: 'DELETE',
+    url: '/api/session'
+  });
+};
 
 /***/ })
 /******/ ]);
