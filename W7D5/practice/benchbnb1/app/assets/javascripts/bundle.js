@@ -978,7 +978,14 @@ window.login = _session_actions.login;
 window.logout = _session_actions.logout;
 
 document.addEventListener('DOMContentLoaded', function () {
-  var store = (0, _store2.default)();
+  var store = void 0;
+  if (window.currentUser) {
+    var preloadedState = { session: { currentUser: window.currentUser } };
+    store = (0, _store2.default)(preloadedState);
+    delete window.currentUser;
+  } else {
+    store = (0, _store2.default)();
+  }
 
   // TESTING START
   window.getState = store.getState;
