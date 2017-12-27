@@ -21,6 +21,7 @@ const notLoggedIn = () => {
 };
 
 const Greeting = ({currentUser, logout}) => {
+  
   if (currentUser) {
     return personalGreeting(currentUser, logout);
   } else {
