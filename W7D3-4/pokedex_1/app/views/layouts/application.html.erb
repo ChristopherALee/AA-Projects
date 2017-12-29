@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Pokedex</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+
+    <script type="text/javascript">
+      window.POKEMON_TYPES = <%=raw Pokemon::TYPES %>
+    </script>
+  </head>
+
+  <body>
+    <header>
+      <div class="header-content">
+        <a id='pokeball-logo' href="/#/">
+          <img src="./assets/pokeball.svg" alt="pokedex">
+        </a>
+
+        <a id='create-poke-link' href="/#/create">Create Pokemon</a>
+      </div>
+    </header>
+
+    <%= yield %>
+  </body>
+</html>
